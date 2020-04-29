@@ -1,17 +1,20 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <img alt="AGL logo" src="./assets/logo.png">
+    <AglCodeTest msg="Welcome to Agl Programming Chanllenge"/>
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import AglCodeTest from './components/AglCodeTest.vue'
+import Footer from './components/Footer.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    AglCodeTest,
+    Footer
   }
 }
 </script>
@@ -23,6 +26,11 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 30px;
+}
+
+img {
+  width: 200px;
+  height: 130px;
 }
 </style>

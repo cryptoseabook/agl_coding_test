@@ -1,1 +1,1 @@
-export const DEFAULT_END_POINT = 'http://agl-developer-test.azurewebsites.net/people.json'
+export const DEFAULT_END_POINT = 'https://agl-developer-test.azurewebsites.net/people.json'

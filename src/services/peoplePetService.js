@@ -1,7 +1,7 @@
 import axios from 'axios'
 import {filter, concat, sortBy, prop} from 'ramda'
 
-const fetchData = async function (apiUrl) {
+export const fetchData = async function (apiUrl) {
     let endPoint = apiUrl || 'http://agl-developer-test.azurewebsites.net/people.json'
     let result = ''
     try {
@@ -15,10 +15,7 @@ const fetchData = async function (apiUrl) {
     return result
 }
 
-export const filterAndSortData = async function (apiUrl, gender, petType, sortByProp) {
-    // fetch data first
-    let data = await fetchData(apiUrl)
-
+export const filterAndSortData = async function (data, gender, petType, sortByProp) {
     // define filter rules
     const isGender = owner => owner.gender.toLowerCase() === gender;
     const isPetType = pet => pet.type.toLowerCase() === petType

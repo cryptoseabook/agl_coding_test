@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import {filterAndSortData} from '../services/peoplePetService'
+import {fetchData, filterAndSortData} from '../services/peoplePetService'
 import {DEFAULT_END_POINT} from '../libs/data.js'
 
 export default {
@@ -33,8 +33,9 @@ export default {
     msg: String
   },
   async created () {
-    this.maleCatsSorted = await filterAndSortData(DEFAULT_END_POINT, 'male', 'cat', 'name')
-    this.femaleCatsSorted = await filterAndSortData(DEFAULT_END_POINT, 'female', 'cat', 'name')
+    let data = await fetchData(DEFAULT_END_POINT)
+    this.maleCatsSorted = await filterAndSortData(data, 'male', 'cat', 'name')
+    this.femaleCatsSorted = await filterAndSortData(data, 'female', 'cat', 'name')
   },  
   data: () => ({
     maleCatsSorted: [],

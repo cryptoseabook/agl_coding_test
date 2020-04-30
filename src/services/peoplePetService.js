@@ -21,23 +21,19 @@ export const filterAndSortData = async function (data, gender, petType, sortByPr
     const isPetType = pet => pet.type.toLowerCase() === petType
 
     // find all male owners
-    let allMaleOwners = filter(isGender, data);
+    let allOnwersByGender = filter(isGender, data);
 
     // find all pets by petType
     let allPets = []
-    allMaleOwners.forEach(owner => {
+    allOnwersByGender.forEach(owner => {
         if (owner.pets) {
             allPets = concat(allPets, filter(isPetType, owner.pets))
         }
     })
 
     // sort by name
-    const sortByNameCaseInsensitive = sortBy(prop(sortByProp));
-
-    allPets = sortByNameCaseInsensitive(allPets); 
-
-    console.log(allPets)
-
+    const sortByName = sortBy(prop(sortByProp));
+    allPets = sortByName(allPets); 
     return allPets
 }
 
